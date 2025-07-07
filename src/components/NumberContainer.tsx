@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 // components
 import NumberTypeSelector from "./NumberTypeSelector";
@@ -21,12 +21,9 @@ const NumberContainer = () => {
   const { showResult, isLoading, result, fetchNumberFact, resetResult } =
     useNumberFact();
 
-  const handleSubmit = useCallback(
-    (number: UserSelectedNumberType) => {
-      fetchNumberFact(number, selectedType);
-    },
-    [selectedType]
-  );
+  const handleSubmit = (number: UserSelectedNumberType) => {
+    fetchNumberFact(number, selectedType);
+  };
 
   if (showResult) {
     return (

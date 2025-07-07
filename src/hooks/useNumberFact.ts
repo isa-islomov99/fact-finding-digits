@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 // utils
 import { toastError } from "@/shared/utils/toast";
@@ -45,10 +45,10 @@ export const useNumberFact = () => {
     }
   };
 
-  const resetResult = useCallback(() => {
+  const resetResult = () => {
     setShowResult(false);
     setResult({ number: "", fact: "" });
-  }, []);
+  };
 
   return {
     showResult,

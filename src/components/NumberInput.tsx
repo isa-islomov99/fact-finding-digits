@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { useState } from "react";
 
 // components
 import { Button } from "@/shared/ui/button";
@@ -21,7 +21,7 @@ interface NumberInputProps {
   onSubmit: (number: UserSelectedNumberType) => void;
 }
 
-const NumberInput = memo(({ selectedType, onSubmit }: NumberInputProps) => {
+const NumberInput = ({ selectedType, onSubmit }: NumberInputProps) => {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
 
@@ -83,6 +83,6 @@ const NumberInput = memo(({ selectedType, onSubmit }: NumberInputProps) => {
       </div>
     </Card>
   );
-});
+};
 
 export default NumberInput;

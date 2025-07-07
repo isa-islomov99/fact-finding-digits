@@ -1,8 +1,8 @@
 import { Button } from "@/shared/ui/button";
 import { Card } from "@/shared/ui/card";
 
-type NumberType = "trivia" | "math" | "date" | "year";
-
+// types
+import type { NumberType } from "@/shared/types/numbersType";
 interface NumberTypeSelectorProps {
   selectedType: NumberType;
   onTypeSelect: (type: NumberType) => void;
