@@ -1,50 +1,26 @@
-import { useState } from "react";
-
 // components
 import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
 import { Card } from "@/shared/ui/card";
 import { Shuffle, Hash } from "lucide-react";
 
+// hook
+import { useNumberInput } from "@/hooks/useNumberInput";
+
 // utils
 import { getPlaceholder, getInputType } from "@/shared/utils/numberInputUtils";
-import { validateInput } from "@/shared/utils/numberInputValidation";
 
 // type
-import type {
-  NumberType,
-  UserSelectedNumberType,
-} from "@/shared/types/numbersType";
-
-interface NumberInputProps {
-  selectedType: NumberType;
-  onSubmit: (number: UserSelectedNumberType) => void;
-}
+import type { NumberInputProps } from "@/shared/types/numbersType";
 
 const NumberInput = ({ selectedType, onSubmit }: NumberInputProps) => {
-  const [inputValue, setInputValue] = useState("");
-  const [error, setError] = useState("");
-
-  const handleManualSubmit = () => {
-    const validationError = validateInput(selectedType, inputValue);
-    if (validationError) {
-      setError(validationError);
-      return;
-    }
-
-    setError("");
-    onSubmit(inputValue);
-  };
-
-  const handleRandomSubmit = () => {
-    setError("");
-    onSubmit("random");
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    if (error) setError("");
-  };
+  const {
+    inputValue,
+    error,
+    handleRandomSubmit,
+    handleManualSubmit,
+    handleInputChange,
+  } = useNumberInput(selectedType, onSubmit);
 
   return (
     <Card className="p-6 space-y-4 shadow-soft">
