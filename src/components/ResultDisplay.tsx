@@ -10,18 +10,7 @@ import {
 } from "@/shared/utils/resultDisplayUtils";
 
 // type
-import type {
-  NumberType,
-  UserSelectedNumberType,
-} from "@/shared/types/numbersType";
-
-interface ResultDisplayProps {
-  number: UserSelectedNumberType;
-  type: NumberType;
-  fact: string;
-  isLoading: boolean;
-  onBack: () => void;
-}
+import type { ResultDisplayProps } from "@/shared/types/numbersType";
 
 const ResultDisplay = ({ number, type, fact, onBack }: ResultDisplayProps) => {
   return (
